@@ -429,7 +429,7 @@ func (r rfc2136Provider) ApplyChanges(ctx context.Context, changes *plan.Changes
 	}
 
 	if len(errors) > 0 {
-		return fmt.Errorf("RFC2136 had errors in one or more of its batches: %v", errors)
+		return provider.NewSoftError(fmt.Errorf("RFC2136 had errors in one or more of its batches: %v", errors))
 	}
 
 	return nil
